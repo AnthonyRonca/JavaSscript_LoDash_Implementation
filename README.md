@@ -1,1 +1,1 @@
-# JavaSscript_LoDash_Implementation
+# Javascript_LoDash_Implementation
