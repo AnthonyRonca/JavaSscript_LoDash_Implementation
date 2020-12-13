@@ -33,7 +33,39 @@ const _ = {
         if (obj[key]) { return true; }
         return false;
     },
-    
+    invert: function (obj) {
+        let emptyObj = {};
+        for(let key in obj) { emptyObj[obj[key]] = key; }
+        return emptyObj
+    },
+    findKey: function (obj, func) {
+        for(var key in obj){
+            if (func(obj[key])) { return key; }
+        }
+    },
+    drop: function (arr, amountToDrop) {
+        if(!amountToDrop) { amountToDrop = 1; }
+        for(var i = 0; i < amountToDrop; i++){
+            arr.shift();
+        }
+        return arr
+    },
+    dropWhile: function (arr,func) {
+//he supplied predicate function takes three arguments: the current element, the current element index, and the whole array
+        let index = 0;
+        while (func(arr[index], index, arr)) {
+            arr.shift();
+        }
+        return arr;
+    },
+    chunk: function (arr, size = 1 ) {
+        var chunks = [];
+        for(var i = 0; i < arr.length; i += size){
+            var chunk = arr.slice(i, i + size)
+            chunks.push(chunk);
+        }
+        return chunks
+    }
 }
 
 // Do not write or modify code below this line.
